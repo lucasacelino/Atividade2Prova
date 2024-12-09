@@ -1,1 +1,4 @@
-# Pip - dependências
+# Pip - dependências - É Necessário instalar o Flask na aplicação.
+# Atribuindo a dependência do Flask abaixo
+
+Flask==3.0.3
