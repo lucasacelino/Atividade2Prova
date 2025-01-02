@@ -79,7 +79,7 @@ Pergunta: Defina quais JSON que devem ser fornecidos nas entradas dos endpoints?
 
     No Endpoint /aluno, deve ser fornecido o seguinte Json:
         [
-            "titulo": ,
+            "titulo": "Aluno matriculado em TSI",
             "criacao": 23/11/24,
             "aluno": {
                 "idade": 34,
