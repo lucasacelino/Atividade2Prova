@@ -55,7 +55,8 @@ Endpoint abaixo cria um novo aluno>
 
 
 Pergunta: Como os dados são manipulados e persistidos? Você sugere alguma forma mais eficiente de persistir essas informações? Aponte no código e comente a forma de manipulação e sugestões.
-    Resposta: Os dados são persistidos(salvados) em uma lista e isso é ruim porque quando fecha aplicação, os dados que estavam na lista, são perdidos. Sim, há uma melhor maneira de persistir os dados, utilizando uma conexão com banco de dados. Meu ponto de melhoria, primeiro: criar as tabelas dos respetivos modelos, como no exemplo: Aluno e Relatório. posteriormente, atribuiria as minhas funções de conexão do banco de dados aos arquivos onde serão manipulados os dados dos endpoints.
+
+        Resposta: Os dados são persistidos(salvados) em uma lista e isso é ruim porque quando fecha aplicação, os dados que estavam na lista, são perdidos. Sim, há uma melhor maneira de persistir os dados, utilizando uma conexão com banco de dados. Meu ponto de melhoria, primeiro: criar as tabelas dos respetivos modelos, como no exemplo: Aluno e Relatório. posteriormente, atribuiria as minhas funções de conexão do banco de dados aos arquivos onde serão manipulados os dados dos endpoints.
 
 
 Pergunta: Explique, passo-a-passo, através de comentários no código como funciona a validação dos dados através da biblioteca do marshmallow.
