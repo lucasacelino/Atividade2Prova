@@ -53,8 +53,9 @@ Endpoint abaixo cria um novo aluno>
         // retorna os dados que foram cadastrados.
         return jsonify(response_data), 200
 
+
 Pergunta: Como os dados são manipulados e persistidos? Você sugere alguma forma mais eficiente de persistir essas informações? Aponte no código e comente a forma de manipulação e sugestões.
-    Resposta: Os dados são persistidos(salvados) em uma lista e isso é ruim porque quando fecha aplicação, os dados que estavam na lista, são perdidos. Sim, há uma melhor maneira de persistir os dados, utilizando uma conexão com banco de dados. Meu ponto de melhoria, primeiro: criar as tabelas dos respetivos modelos, como no exemplo: Aluno e Relatório. posteriormente, atribuiria as minhas funções de conexão aos arquivos onde irem manipular os endpoints.
+    Resposta: Os dados são persistidos(salvados) em uma lista e isso é ruim porque quando fecha aplicação, os dados que estavam na lista, são perdidos. Sim, há uma melhor maneira de persistir os dados, utilizando uma conexão com banco de dados. Meu ponto de melhoria, primeiro: criar as tabelas dos respetivos modelos, como no exemplo: Aluno e Relatório. posteriormente, atribuiria as minhas funções de conexão do banco de dados aos arquivos onde serão manipulados os dados dos endpoints.
 
 
 Pergunta: Explique, passo-a-passo, através de comentários no código como funciona a validação dos dados através da biblioteca do marshmallow.
@@ -68,21 +69,30 @@ Pergunta: Explique, passo-a-passo, através de comentários no código como func
     except ValidationError as err:
         return jsonify(err.messages), 400
 
-Pergunta: Defina quais JSON que devem ser fornecidos nas entradas dos endpoints? Como é possível chegar a essa conclusão? Adicione comentário antes de cada endpoint informando o formato da dado de entrada.
-    no endpoint /relatorio, deve ser fornecido o seguite Json: 
-        [
-            {
-                "idade": 34,
-                "disciplina": "Programação Web"
-            }
-        ]
 
-    No Endpoint /aluno, deve ser fornecido o seguinte Json:
-        [
-            "titulo": "Aluno matriculado em TSI",
-            "criacao": 23/11/24,
-            "aluno": {
-                "idade": 34,
-                "disciplina": "Programação Web"
-            }
-        ]
+Pergunta: Defina quais JSON que devem ser fornecidos nas entradas dos endpoints? Como é possível chegar a essa conclusão? Adicione comentário antes de cada endpoint informando o formato da dado de entrada.
+
+    É possível ter ideia de quais são solicitados porque na classe que definem o schema de dados das entidades, são criados os seguintes atributos:
+        class AlunoSchema(Schema):
+            idade = fields.Integer(required=True)
+            disciplina = fields.String(required=True)
+    Da mesma forma na classe relatório. 
+
+    Como deveriam ser fornecidos os dados no arquivo Json:
+        No endpoint /relatorio, deve ser fornecido o seguite Json: 
+            [
+                {
+                    "idade": 34,
+                    "disciplina": "Programação Web"
+                }
+            ]
+
+        No endpoint /aluno, deve ser fornecido o seguinte Json:
+            [
+                "titulo": "Aluno matriculado em TSI",
+                "criacao": 23/11/24,
+                "aluno": {
+                    "idade": 34,
+                    "disciplina": "Programação Web"
+                }
+            ]
