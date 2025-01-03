@@ -76,7 +76,7 @@ Pergunta: Defina quais JSON que devem ser fornecidos nas entradas dos endpoints?
         class AlunoSchema(Schema):
             idade = fields.Integer(required=True)
             disciplina = fields.String(required=True)
-    Da mesma forma na classe relatório. 
+    Da mesma forma na classe RelatorioSchema. 
 
     Como deveriam ser fornecidos os dados no arquivo Json:
         No endpoint /relatorio, deve ser fornecido o seguite Json: 
