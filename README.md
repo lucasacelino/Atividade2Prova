@@ -1,6 +1,7 @@
 # Documentação.
 Pergunta: Quais endpoints são fornecidos pelo serviço REST
 O endpoint abaixo cria um novo relatório de todos os alunos salvos. 
+
     @app.post('/relatorio')
     def relatorio_post():
 
@@ -27,6 +28,7 @@ O endpoint abaixo cria um novo relatório de todos os alunos salvos.
         return jsonify(response_data), 200
 
 Endpoint abaixo cria um novo aluno>
+
     @app.post('/aluno')
     def aluno_post():
 
@@ -60,11 +62,13 @@ Pergunta: Como os dados são manipulados e persistidos? Você sugere alguma form
 
 
 Pergunta: Explique, passo-a-passo, através de comentários no código como funciona a validação dos dados através da biblioteca do marshmallow.
+
     Resposta: 
+    
+    //Para cada atributo da classe é definido o tipo de dado em que deve ser fornecido. Nesse caso, é obrigatório que se forneça um valor e que seja compatível com o tipo especificado no atributo. 
     class AlunoSchema(Schema):
-    // É atribuido ao atributo o tipo de dado que se espera ser salvo. Neste caso, o tipo do dado é deve ser um inteiro e é obrigatório
-    idade = fields.Integer(required=True)
-    disciplina = fields.String(required=True)
+        idade = fields.Integer(required=True)
+        disciplina = fields.String(required=True)
 
     // Se o dado informado não for do tipo esperado ou não for informado, é lançada a exceção ValidationError. 
     except ValidationError as err:
